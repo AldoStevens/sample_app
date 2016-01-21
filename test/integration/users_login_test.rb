@@ -18,7 +18,7 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
 
   test "login with valid information followed by logout" do
     # skipping this test because code for current_user method in the sessions helper caused an error. I need help
-    skip
+   
     get login_path
     post login_path, session: { email: @user.email, password: 'password' }
     assert is_logged_in?
@@ -32,7 +32,6 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
     assert_not is_logged_in?
     assert_redirected_to root_url
     follow_redirect!
-    # skip
     assert_select "a[href=?]", login_path
     assert_select "a[href=?]", logout_path,      count: 0
     assert_select "a[href=?]", user_path(@user), count: 0
