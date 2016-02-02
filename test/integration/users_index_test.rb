@@ -6,7 +6,7 @@ class UsersIndexTest < ActionDispatch::IntegrationTest
   	@user = User.create!(name: "Aldo", email: "user@valid.com", password: "foobar", password_confirmation: "foobar")
     
     35.times do |index|
-      User.create!(name: "Sterling Archer", email: "example-#{index+1}@foo.com", password: "foobar", password_confirmation: "foobar")
+      User.create!(name: "Sterling Archer", email: "example-#{index+1}@foo.com", password: "foobar", password_confirmation: "foobar", activated: true, activated_at: "<%= Time.zone.now %>")
     end
     
   end

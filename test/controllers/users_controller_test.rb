@@ -3,8 +3,8 @@ require 'test_helper'
 class UsersControllerTest < ActionController::TestCase
   
   def setup
-		@user = User.create!(name: "Aldo", email: "user@valid.com", password: "foobar", password_confirmation: "foobar")
-    @other_user = User.create!(name: "Sterling Archer", email: "duchess@example.gov", password: "foobar", password_confirmation: "foobar")
+		@user = User.create!(name: "Aldo", email: "user@valid.com", password: "foobar", password_confirmation: "foobar", activated: true, activated_at: "<%= Time.zone.now %>" )
+    @other_user = User.create!(name: "Sterling Archer", email: "duchess@example.gov", password: "foobar", password_confirmation: "foobar", activated: true, activated_at: "<%= Time.zone.now %>")
 	end   
 
   test "should redirect index when not logged in" do
